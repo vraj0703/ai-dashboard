@@ -1,0 +1,17 @@
+# examples/simple/registry.toml
+#
+# The smallest possible example: one organ.
+# Useful for kicking the tires before you wire in your full system.
+#
+# Run with:
+#   ai-dashboard --registry examples/simple/registry.toml
+
+[meta]
+name = "simple"
+brand = "Simple"
+tagline = "One organ, no fuss"
+port = 3491
+
+[[organs]]
+name = "core"
+url = "http://127.0.0.1:8000"

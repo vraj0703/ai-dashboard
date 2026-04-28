@@ -1,0 +1,33 @@
+# examples/raj-sadan/registry.toml
+#
+# The reference 4-organ AI nervous system: mind, senses, memory, knowledge.
+# This is the registry raj-sadan itself uses.
+#
+# Run with:
+#   ai-dashboard --registry examples/raj-sadan/registry.toml
+
+[meta]
+name = "raj-sadan"
+brand = "Raj Sadan"
+tagline = "Mind · Senses · Memory · Knowledge"
+port = 3491
+
+[[organs]]
+name = "mind"
+url = "http://127.0.0.1:3486"
+badge = "deciding"
+
+[[organs]]
+name = "senses"
+url = "http://127.0.0.1:3487"
+badge = "perceiving"
+
+[[organs]]
+name = "memory"
+url = "http://127.0.0.1:3488"
+badge = "remembering"
+
+[[organs]]
+name = "knowledge"
+url = "http://127.0.0.1:3489"
+badge = "knowing"

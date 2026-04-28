@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ai-dashboard</title>
+  <link rel="stylesheet" href="/shared/shared.css">
+</head>
+<body>
+  <header class="aid-header">
+    <div class="aid-header-left">
+      <span class="aid-logo" id="aid-brand">AI Nervous System</span>
+      <span class="aid-divider"></span>
+      <span class="aid-page-title" id="aid-tagline">Organs · Metrics · Network</span>
+    </div>
+    <div class="aid-header-right">
+      <span class="aid-live-dot" id="aid-live-dot"></span>
+      <button class="aid-btn-icon" id="aid-refresh" title="Refresh">&#x21BB;</button>
+    </div>
+  </header>
+
+  <main class="aid-app">
+    <section class="aid-section">
+      <div class="aid-section-head">
+        <h2>Organs</h2>
+        <span class="aid-meta" id="aid-organ-count">…</span>
+      </div>
+      <div class="aid-grid" id="aid-organ-grid"></div>
+    </section>
+
+    <section class="aid-section">
+      <div class="aid-section-head">
+        <h2>Network</h2>
+        <span class="aid-meta" id="aid-net-count">0 events</span>
+      </div>
+      <div class="aid-net" id="aid-net-log">
+        <div class="aid-net-empty">No proxy traffic yet. Calls to <code>/api/&lt;organ&gt;/*</code> appear here.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="aid-footer">
+    <span id="aid-last-refresh">Last refreshed: —</span>
+    <span id="aid-version">ai-dashboard</span>
+  </footer>
+
+  <script src="/shared/shared.js"></script>
+  <script>
+    AID.boot({
+      brandEl: 'aid-brand',
+      taglineEl: 'aid-tagline',
+      versionEl: 'aid-version',
+      organGridEl: 'aid-organ-grid',
+      organCountEl: 'aid-organ-count',
+      netLogEl: 'aid-net-log',
+      netCountEl: 'aid-net-count',
+      lastRefreshEl: 'aid-last-refresh',
+      refreshBtnEl: 'aid-refresh',
+      liveDotEl: 'aid-live-dot',
+    });
+  </script>
+</body>
+</html>

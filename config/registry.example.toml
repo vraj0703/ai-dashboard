@@ -1,0 +1,30 @@
+# Drop-in template for your own ai-dashboard registry.
+#
+# Save as registry.toml at your repo root, then:
+#   ai-dashboard --registry ./registry.toml
+#
+# Schema:
+#   meta.name      — short ID (kebab-case)
+#   meta.brand     — header text shown on the dashboard
+#   meta.tagline   — sub-header (optional)
+#   meta.port      — dashboard listen port (CLI --port wins if set)
+#
+#   [[organs]]     — one block per service the dashboard should monitor + proxy to
+#     name         — short ID; URL path becomes /api/<name>/*
+#     url          — base URL the dashboard hits for /health and proxy passthrough
+#     badge        — optional one-word descriptor shown on the tile
+#     proxy_path   — optional override for the public proxy mount; defaults to /api/<name>
+
+[meta]
+name = "my-system"
+brand = "My System"
+tagline = "Customize me"
+port = 3491
+
+[[organs]]
+name = "service-a"
+url = "http://127.0.0.1:9001"
+
+[[organs]]
+name = "service-b"
+url = "http://127.0.0.1:9002"

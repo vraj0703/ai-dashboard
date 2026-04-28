@@ -1,0 +1,67 @@
+{
+  "name": "@vraj0703/ai-dashboard",
+  "version": "0.1.0",
+  "description": "Operator dashboard for an AI nervous system — organ health, network log, SSE feed, design-system preview, architecture viewer. Stitches ai-mind/senses/memory/knowledge/constitution/architecture-renderer into one HTTP surface. Configurable registry, mockable defaults.",
+  "license": "MIT",
+  "author": "Vishal Raj",
+  "homepage": "https://github.com/vraj0703/ai-dashboard",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vraj0703/ai-dashboard.git"
+  },
+  "bugs": "https://github.com/vraj0703/ai-dashboard/issues",
+  "keywords": ["ai", "agent", "dashboard", "observability", "organ", "health", "mcp", "registry", "operator"],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "bin": {
+    "ai-dashboard": "./bin/ai-dashboard.js"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./container": "./src/di/container.js",
+    "./constants": "./src/domain/constants/index.js",
+    "./registry": "./src/domain/use_cases/parse_registry.js",
+    "./mcp": "./src/presentation/mcp/server.js"
+  },
+  "files": [
+    "src/",
+    "bin/",
+    "config/",
+    "examples/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "ARCHITECTURE.md"
+  ],
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test tests/*.test.js src/domain/use_cases/*.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "peerDependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@iarna/toml": "^2.2.5",
+    "zod": "^3.22.0"
+  },
+  "peerDependenciesMeta": {
+    "@modelcontextprotocol/sdk": {
+      "optional": true
+    },
+    "@iarna/toml": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@iarna/toml": "^2.2.5",
+    "zod": "^3.22.0"
+  }
+}

@@ -1,0 +1,163 @@
+/* ai-dashboard — minimal framework chrome.
+   Customize freely with your own static-extra dir. */
+
+:root {
+  --aid-bg-0: #0b0d10;
+  --aid-bg-1: #14181d;
+  --aid-bg-2: #1c2128;
+  --aid-border: #2a313b;
+  --aid-text-1: #e6edf3;
+  --aid-text-2: #a8b3bf;
+  --aid-text-3: #6e7681;
+  --aid-accent: #58a6ff;
+  --aid-good: #3fb950;
+  --aid-warn: #d29922;
+  --aid-bad: #f85149;
+  --aid-rad-sm: 4px;
+  --aid-rad-md: 8px;
+  --aid-rad-lg: 12px;
+  --aid-sp-xs: 4px;
+  --aid-sp-sm: 8px;
+  --aid-sp-md: 12px;
+  --aid-sp-lg: 16px;
+  --aid-sp-xl: 24px;
+  --aid-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+  --aid-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--aid-sans);
+  background: var(--aid-bg-0);
+  color: var(--aid-text-1);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+code, kbd { font-family: var(--aid-mono); font-size: 12px; }
+
+/* ── Header ── */
+.aid-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--aid-sp-md) var(--aid-sp-xl);
+  background: var(--aid-bg-1);
+  border-bottom: 1px solid var(--aid-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.aid-header-left { display: flex; align-items: center; gap: var(--aid-sp-md); }
+.aid-header-right { display: flex; align-items: center; gap: var(--aid-sp-md); }
+.aid-logo { font-weight: 700; font-size: 15px; letter-spacing: 0.01em; }
+.aid-divider { width: 1px; height: 18px; background: var(--aid-border); }
+.aid-page-title { font-size: 13px; color: var(--aid-text-2); }
+.aid-btn-icon {
+  background: transparent; border: 1px solid var(--aid-border);
+  color: var(--aid-text-2); cursor: pointer;
+  width: 30px; height: 30px; border-radius: var(--aid-rad-sm);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  transition: all 0.15s ease;
+}
+.aid-btn-icon:hover { color: var(--aid-text-1); border-color: var(--aid-accent); }
+.aid-btn-icon.spin { animation: aid-spin 0.6s linear; }
+@keyframes aid-spin { to { transform: rotate(360deg); } }
+
+.aid-live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--aid-good); display: inline-block;
+  animation: aid-pulse 2s ease-in-out infinite;
+}
+.aid-live-dot.dim { background: var(--aid-text-3); animation: none; }
+@keyframes aid-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── App / sections ── */
+.aid-app { flex: 1; padding: var(--aid-sp-xl); display: flex; flex-direction: column; gap: var(--aid-sp-xl); max-width: 1280px; width: 100%; margin: 0 auto; }
+.aid-section { background: var(--aid-bg-1); border: 1px solid var(--aid-border); border-radius: var(--aid-rad-lg); padding: var(--aid-sp-lg); }
+.aid-section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: var(--aid-sp-md);
+  border-bottom: 1px solid var(--aid-border);
+  padding-bottom: var(--aid-sp-sm);
+}
+.aid-section-head h2 {
+  margin: 0; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--aid-text-2);
+}
+.aid-meta { font-size: 12px; color: var(--aid-text-3); font-family: var(--aid-mono); }
+
+/* ── Organ grid ── */
+.aid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--aid-sp-md);
+}
+.aid-tile {
+  background: var(--aid-bg-2);
+  border: 1px solid var(--aid-border);
+  border-radius: var(--aid-rad-md);
+  padding: var(--aid-sp-md);
+  display: flex; flex-direction: column; gap: 6px;
+  transition: all 0.15s ease;
+}
+.aid-tile:hover { border-color: var(--aid-accent); }
+.aid-tile-row { display: flex; align-items: center; justify-content: space-between; gap: var(--aid-sp-sm); }
+.aid-tile-name { font-weight: 600; font-size: 14px; text-transform: capitalize; }
+.aid-tile-badge {
+  font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--aid-text-3);
+  border: 1px solid var(--aid-border);
+  border-radius: var(--aid-rad-sm);
+  padding: 2px 6px;
+}
+.aid-tile-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-family: var(--aid-mono);
+}
+.aid-tile-status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--aid-text-3); }
+.aid-tile-status.running { color: var(--aid-good); }
+.aid-tile-status.running .dot { background: var(--aid-good); }
+.aid-tile-status.down { color: var(--aid-bad); }
+.aid-tile-status.down .dot { background: var(--aid-bad); }
+.aid-tile-status.error { color: var(--aid-warn); }
+.aid-tile-status.error .dot { background: var(--aid-warn); }
+.aid-tile-url { font-family: var(--aid-mono); font-size: 11px; color: var(--aid-text-3); word-break: break-all; }
+.aid-tile-version { font-family: var(--aid-mono); font-size: 11px; color: var(--aid-text-2); }
+
+/* ── Network log ── */
+.aid-net { font-family: var(--aid-mono); font-size: 12px; max-height: 480px; overflow-y: auto; }
+.aid-net-empty { padding: var(--aid-sp-lg); color: var(--aid-text-3); text-align: center; font-family: var(--aid-sans); }
+.aid-net-row {
+  display: grid;
+  grid-template-columns: 80px 60px 1fr 80px 80px;
+  gap: var(--aid-sp-sm);
+  padding: 6px var(--aid-sp-sm);
+  border-bottom: 1px dashed var(--aid-border);
+  align-items: center;
+}
+.aid-net-row.error { background: rgba(248, 81, 73, 0.08); }
+.aid-net-method { color: var(--aid-accent); font-weight: 600; font-size: 11px; }
+.aid-net-status { color: var(--aid-good); }
+.aid-net-status.error { color: var(--aid-bad); }
+.aid-net-path { color: var(--aid-text-1); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.aid-net-duration { color: var(--aid-text-3); text-align: right; }
+.aid-net-time { color: var(--aid-text-3); }
+
+/* ── Footer ── */
+.aid-footer {
+  padding: var(--aid-sp-md) var(--aid-sp-xl);
+  background: var(--aid-bg-1);
+  border-top: 1px solid var(--aid-border);
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--aid-text-3);
+  font-family: var(--aid-mono);
+}

@@ -1,0 +1,50 @@
+# examples/microservices/registry.toml
+#
+# A non-agent shape: classic microservices behind a dashboard. Each "organ"
+# here is just a backend service. Demonstrates the dashboard works for any
+# multi-service system, not only AI agent stacks.
+#
+# Run with:
+#   ai-dashboard --registry examples/microservices/registry.toml
+
+[meta]
+name = "microservices"
+brand = "Microservices"
+tagline = "Six services + queue + db"
+port = 3491
+
+[[organs]]
+name = "gateway"
+url = "http://127.0.0.1:8080"
+badge = "edge"
+
+[[organs]]
+name = "auth"
+url = "http://127.0.0.1:8081"
+badge = "tokens"
+
+[[organs]]
+name = "users"
+url = "http://127.0.0.1:8082"
+
+[[organs]]
+name = "orders"
+url = "http://127.0.0.1:8083"
+
+[[organs]]
+name = "billing"
+url = "http://127.0.0.1:8084"
+
+[[organs]]
+name = "notifications"
+url = "http://127.0.0.1:8085"
+
+[[organs]]
+name = "queue"
+url = "http://127.0.0.1:8086"
+badge = "broker"
+
+[[organs]]
+name = "db"
+url = "http://127.0.0.1:8087"
+badge = "storage"
