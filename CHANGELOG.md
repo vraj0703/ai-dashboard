@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-04-29
+
+### Changed (BREAKING — npm scope)
+
+- **Renamed npm package from `@vraj0703/ai-dashboard` to `@raj-sadan/ai-dashboard`** to match the project's npm org. Update install: `npm install @raj-sadan/ai-dashboard`.
+- `release.yml` added — tag-triggered npm publish with provenance attestation.
+- `publishConfig` added: `access: public`, `provenance: true`.
+
+### Note
+
+v0.1.0 existed only as a Git tag (never published to npm). v0.1.1 is the first npm publish.
+
 ## [0.1.0] — 2026-04-28
 
 First public release. Lifted from raj-sadan's `dashboard/` organ.

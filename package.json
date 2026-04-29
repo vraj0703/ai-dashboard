@@ -1,6 +1,10 @@
 {
-  "name": "@vraj0703/ai-dashboard",
-  "version": "0.1.0",
+  "name": "@raj-sadan/ai-dashboard",
+  "version": "0.1.1",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "description": "Operator dashboard for an AI nervous system — organ health, network log, SSE feed, design-system preview, architecture viewer. Stitches ai-mind/senses/memory/knowledge/constitution/architecture-renderer into one HTTP surface. Configurable registry, mockable defaults.",
   "license": "MIT",
   "author": "Vishal Raj",
